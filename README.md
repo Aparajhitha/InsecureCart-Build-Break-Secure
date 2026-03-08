@@ -1,5 +1,32 @@
 # InsecureCart – Build, Break & Secure a Vulnerable Web Application
 
+## Quick Start
+
+1. Clone the repository
+
+git clone https://github.com/Aparajhitha/InsecureCart-Build-Break-Secure.git
+
+2. Navigate into the project
+
+cd InsecureCart-Build-Break-Secure
+
+3. Create virtual environment
+
+python3 -m venv venv
+source venv/bin/activate
+
+4. Install dependencies
+
+pip install -r requirements.txt
+
+5. Initialize database
+
+python init_db.py
+
+6. Run the server
+
+python app.py
+
 ## Overview
 
 **InsecureCart** is a deliberately vulnerable e-commerce API built using Flask and SQLite.
@@ -10,6 +37,20 @@ This project follows a **Build → Break → Secure** methodology used in real c
 It demonstrates how common vulnerabilities occur and how they should be mitigated in production systems.
 
 ---
+
+## Architecture
+
+Client (curl / API requests)
+        │
+        ▼
+Flask API (app.py)
+        │
+        ▼
+SQLite Database
+        │
+        ▼
+Authentication: JWT
+Password Storage: bcrypt
 
 ## Tech Stack
 
@@ -266,6 +307,14 @@ Through this project, the following concepts were implemented and demonstrated:
 * Secure API design principles
 
 ---
+
+## Key Security Lessons
+
+- Never concatenate user input directly into SQL queries.
+- Always enforce authorization checks for resource access.
+- Passwords must be hashed using strong algorithms like bcrypt.
+- Token-based authentication should use signed JWT tokens.
+- Business logic must validate all user inputs.
 
 ## Future Improvements
 
